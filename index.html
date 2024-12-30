@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienda Online</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <h1>Tienda Online</h1>
     <div id="productos"></div>
     <script src="js/main.js"></script>
-</body>
+    <label for="filtro-categoria">Categoría:</label>
+    <select id="filtro-categoria">
+      <option value="">Todas</option>
+      <option value="ropa">Ropa</option>
+      <option value="calzado">Calzado</option>
+    </select>
+
+    <label for="filtro-precio">Rango de Precio:</label>
+    <select id="filtro-precio">
+      <option value="">Todos</option>
+      <option value="0-20">$0 - $20</option>
+      <option value="20-50">$20 - $50</option>
+      <option value="50-100">$50 - $100</option>
+    </select>
+
+    <h2>Carrito de Compras</h2>
+    <div id="carrito"></div>
+    
+    <label for="buscar">Buscar producto:</label>
+    <input type="text" id="buscar">
+    
+
+  </body>
 </html>
