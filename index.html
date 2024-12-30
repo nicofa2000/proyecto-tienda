@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Online</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <header>
-        <h1>Tienda Online</h1>
-        <div class="filtros">
-            <select id="filtro-categoria">
-                <option value="">Categoría</option>
-                <option value="ropa">Ropa</option>
-                <option value="calzado">Calzado</option>
-            </select>
+        <div class="container">
+            <h1>Tienda Online</h1>
+            <div class="filtros">
+                <select id="filtro-categoria">
+                    <option value="">Categoría</option>
+                    <option value="ropa">Ropa</option>
+                    <option value="calzado">Calzado</option>
+                </select>
 
-            <select id="filtro-precio">
-                <option value="">Rango de Precio</option>
-                <option value="0-20">$0 - $20</option>
-                <option value="20-50">$20 - $50</option>
-                <option value="50-100">$50 - $100</option>
-            </select>
+                <select id="filtro-precio">
+                    <option value="">Rango de Precio</option>
+                    <option value="0-20">$0 - $20</option>
+                    <option value="20-50">$20 - $50</option>
+                    <option value="50-100">$50 - $100</option>
+                </select>
 
-            <input type="text" id="buscar" placeholder="Buscar producto...">
+                <input type="text" id="buscar" placeholder="Buscar producto...">
+            </div>
         </div>
     </header>
 
-    <main>
-        <div id="productos" class="productos"></div>
+    <main class="container">
+        <section id="productos" class="productos"></section>
     </main>
 
     <aside id="carrito">
@@ -39,7 +43,7 @@
     </aside>
 
     <footer>
-        <div class="contacto">
+        <div class="container">
             <h2>Contacto</h2>
             <form id="contacto-form">
                 <input type="text" id="nombre" placeholder="Tu nombre" required>
@@ -52,4 +56,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
