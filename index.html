@@ -1,36 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Online</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <h1>Tienda Online</h1>
-    <div id="productos"></div>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Tienda Online</h1>
+        <div class="filtros">
+            <select id="filtro-categoria">
+                <option value="">Categoría</option>
+                <option value="ropa">Ropa</option>
+                <option value="calzado">Calzado</option>
+            </select>
+
+            <select id="filtro-precio">
+                <option value="">Rango de Precio</option>
+                <option value="0-20">$0 - $20</option>
+                <option value="20-50">$20 - $50</option>
+                <option value="50-100">$50 - $100</option>
+            </select>
+
+            <input type="text" id="buscar" placeholder="Buscar producto...">
+        </div>
+    </header>
+
+    <main>
+        <div id="productos" class="productos"></div>
+    </main>
+
+    <aside id="carrito">
+        <h2>Carrito</h2>
+        <div id="carrito-lista"></div>
+        <button id="vaciar-carrito" class="btn-vaciar">Vaciar carrito</button>
+    </aside>
+
+    <footer>
+        <div class="contacto">
+            <h2>Contacto</h2>
+            <form id="contacto-form">
+                <input type="text" id="nombre" placeholder="Tu nombre" required>
+                <input type="email" id="email" placeholder="Tu email" required>
+                <textarea id="mensaje" placeholder="Tu mensaje" required></textarea>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
-    <label for="filtro-categoria">Categoría:</label>
-    <select id="filtro-categoria">
-      <option value="">Todas</option>
-      <option value="ropa">Ropa</option>
-      <option value="calzado">Calzado</option>
-    </select>
-
-    <label for="filtro-precio">Rango de Precio:</label>
-    <select id="filtro-precio">
-      <option value="">Todos</option>
-      <option value="0-20">$0 - $20</option>
-      <option value="20-50">$20 - $50</option>
-      <option value="50-100">$50 - $100</option>
-    </select>
-
-    <h2>Carrito de Compras</h2>
-    <div id="carrito"></div>
-    
-    <label for="buscar">Buscar producto:</label>
-    <input type="text" id="buscar">
-    
-
-  </body>
+</body>
 </html>
