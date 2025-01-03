@@ -1,36 +1,38 @@
 const express = require('express');
 const fs = require('fs');
 const csvParser = require('csv-parser');
+const path = require('path');
 const app = express();
 
-app.use(express.static('assets')); // Para servir archivos estáticos
-app.use(express.json()); // Para manejar datos JSON enviados desde el frontend
+// Middleware para servir archivos estáticos
+app.use(express.static(path.join(__dirname, 'assets')));
 
-// Leer datos del archivo CSV
+// Ruta principal para servir index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// API para productos
 app.get('/productos', (req, res) => {
     const productos = [];
-    const { categoria, precio_min, precio_max, search } = req.query; // Recibe los filtros
+    const { categoria, precio_min, precio_max, search } = req.query;
 
     fs.createReadStream('datos.csv')
         .pipe(csvParser())
         .on('data', (row) => {
-            // Convertir los datos relevantes a formato adecuado
             const nombre = row.Nombre.toLowerCase();
             const descripcion = row.Descripción.toLowerCase();
             const precio = parseFloat(row.Precio);
             const categoriaProducto = row.Categoría;
 
-            // Filtro por búsqueda (search) en nombre y descripción
             if (search && !nombre.includes(search.toLowerCase()) && !descripcion.includes(search.toLowerCase())) {
                 return;
             }
 
-            // Filtro por categoría
             if (categoria && categoria !== categoriaProducto) {
                 return;
             }
 
-            // Filtro por rango de precios
             if (precio_min && precio < parseFloat(precio_min)) {
                 return;
             }
